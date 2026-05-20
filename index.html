@@ -48,13 +48,14 @@ nav ul a:hover { color: #fff; }
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 50% at 50% 40%, rgba(124,58,237,0.15) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 50% at 50% 40%, rgba(124,58,237,0.2) 0%, transparent 70%),
+              linear-gradient(to bottom, rgba(13,13,15,0.7) 0%, rgba(13,13,15,0.5) 50%, rgba(13,13,15,0.85) 100%);
   pointer-events: none;
 }
 .hero-bg2 {
   position: absolute; inset: 0;
   background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&q=80') center/cover no-repeat;
-  opacity: 0.18; pointer-events: none;
+  opacity: 0.1; pointer-events: none;
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.4rem;
@@ -94,8 +95,9 @@ nav ul a:hover { color: #fff; }
 .hero-tags { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .hero-tag {
   display: flex; align-items: center; gap: 0.4rem;
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem 1.1rem; border-radius: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.95);
+  font-weight: 500;
 }
 
 /* NOSOTROS */
@@ -495,25 +497,92 @@ function toggleChat() {
   document.getElementById('chatBubble').classList.toggle('open');
 }
 
+const WA = 'https://wa.me/34614062503';
+
+const responses = [
+  {
+    keys: ['hola','buenas','buenos','hey','saludos','ola'],
+    reply: '¡Hola! 👋 Bienvenido a Kanet Technologies. Puedo ayudarte con información sobre nuestros servicios, precios, tiempos de reparación o ubicación. ¿Qué necesitas?'
+  },
+  {
+    keys: ['servicio','servicios','que hac','que ofrecen','que tienen','ofreceis','ofrecéis'],
+    reply: '🛠️ Nuestros servicios principales son:<br><br>• <b>Venta de ordenadores</b> — nuevos y reacondicionados<br>• <b>Reparación</b> — hardware y software<br>• <b>Mantenimiento preventivo</b> — limpieza y optimización<br>• <b>Recuperación de datos</b><br>• <b>Redes y conectividad</b><br><br>¿Sobre cuál quieres más info?'
+  },
+  {
+    keys: ['precio','precios','cuanto','cuánto','coste','cuesta','cobran','tarifa','presupuesto'],
+    reply: '💰 Precios orientativos:<br><br>• Diagnóstico: <b>GRATIS</b> ✅<br>• Limpieza y optimización: desde <b>25€</b><br>• Cambio de pasta térmica: <b>20€</b><br>• Formateo + instalación SO: desde <b>40€</b><br>• Cambio de pantalla portátil: desde <b>60€</b><br>• Cambio de disco duro/SSD: desde <b>50€</b> (+ precio componente)<br>• Cambio de batería: desde <b>45€</b><br>• Recuperación de datos: desde <b>60€</b><br><br>📌 Presupuesto final sin compromiso antes de cualquier reparación.'
+  },
+  {
+    keys: ['reparacion','reparación','reparar','averia','avería','no arranca','no enciende','pantalla rota','no funciona'],
+    reply: '🔧 Reparamos todo tipo de averías en portátiles y sobremesa:<br><br>• Pantallas rotas<br>• Placas base<br>• Discos duros y SSD<br>• Teclados y puertos<br>• Problemas de software y virus<br>• Recuperación de datos<br><br>El diagnóstico es <b>gratuito</b> y te damos presupuesto antes de empezar. ¿Qué problema tienes?'
+  },
+  {
+    keys: ['tiempo','cuanto tarda','tarda','plazo','cuando estara','cuándo estará','rapidez'],
+    reply: '⏱️ Tiempos estimados:<br><br>• Diagnóstico: mismo día<br>• Formateo y limpieza: 24-48h<br>• Cambio de componentes: 24-72h (según disponibilidad)<br>• Reparaciones complejas: 3-5 días<br><br>Te avisamos cuando esté listo 📱'
+  },
+  {
+    keys: ['donde','ubicacion','ubicación','direccion','dirección','donde estais','dónde','local','tienda'],
+    reply: '📍 Estamos en:<br><br><b>Calle Vicente Aranda 2<br>28521, Rivas-Vaciamadrid, Madrid</b><br><br>También ofrecemos <b>servicio a domicilio</b> en Rivas y alrededores, y <b>soporte remoto</b> para problemas de software.'
+  },
+  {
+    keys: ['horario','hora','cuando abren','abierto','cuando estan'],
+    reply: '🕐 Puedes contactarnos por WhatsApp en cualquier momento. Te respondemos en horario de <b>lunes a viernes de 9:00 a 19:00</b> y <b>sábados de 10:00 a 14:00</b>.'
+  },
+  {
+    keys: ['venta','comprar','ordenador','portatil','portátil','sobremesa','segunda mano','reacondicionado'],
+    reply: '🖥️ Vendemos equipos nuevos y reacondicionados:<br><br>• <b>Portátiles reacondicionados</b>: desde <b>150€</b><br>• <b>Sobremesa reacondicionados</b>: desde <b>120€</b><br>• <b>Portátiles nuevos</b>: desde <b>350€</b><br><br>Todos con garantía incluida ✅. ¿Tienes algún presupuesto en mente?'
+  },
+  {
+    keys: ['garantia','garantía','warranty'],
+    reply: '✅ Todas nuestras reparaciones incluyen <b>garantía de 3 meses</b> en la mano de obra. Los componentes nuevos tienen la garantía del fabricante (normalmente 1-2 años).'
+  },
+  {
+    keys: ['virus','malware','lento','va lento','limpieza','optimizar','optimización'],
+    reply: '🦠 Si tu equipo va lento o tiene virus, podemos ayudarte:<br><br>• Eliminación de virus y malware: desde <b>35€</b><br>• Limpieza y optimización completa: desde <b>25€</b><br>• Formateo completo con reinstalación: desde <b>40€</b><br><br>El diagnóstico es gratuito 🔍'
+  },
+  {
+    keys: ['datos','recuperar','disco','backup','archivos perdidos'],
+    reply: '💾 Recuperación de datos:<br><br>• Diagnóstico: <b>GRATIS</b><br>• Recuperación básica (software): desde <b>60€</b><br>• Recuperación avanzada (hardware): desde <b>100€</b><br><br>⚠️ No cobramos si no recuperamos tus datos.'
+  },
+  {
+    keys: ['remoto','remotamente','online','sin salir','desde casa'],
+    reply: '💻 Ofrecemos <b>soporte remoto</b> para problemas de software, virus, configuraciones y más — sin que tengas que salir de casa.<br><br>Precio: desde <b>20€/sesión</b>.<br><br>Contáctanos por WhatsApp y te conectamos en minutos.'
+  },
+  {
+    keys: ['contacto','contactar','hablar','llamar','whatsapp','telefono','teléfono','email'],
+    reply: `📞 Puedes contactarnos por:<br><br>• <a href="${WA}" target="_blank" style="color:#a78bfa">WhatsApp: 614 062 503</a> (respuesta inmediata)<br>• Email: info@kanettech.com<br>• Presencial: Calle Vicente Aranda 2, Rivas-Vaciamadrid`
+  },
+  {
+    keys: ['gracias','muchas gracias','ok','perfecto','genial','vale'],
+    reply: '😊 ¡De nada! Si tienes más preguntas, aquí estamos. También puedes contactarnos directamente por <a href="' + WA + '" target="_blank" style="color:#a78bfa">WhatsApp</a> para una respuesta inmediata.'
+  }
+];
+
+function getReply(msg) {
+  const lower = msg.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  for (const r of responses) {
+    if (r.keys.some(k => lower.includes(k))) return r.reply;
+  }
+  return `No tengo esa información concreta, pero puedo ayudarte por <a href="${WA}?text=${encodeURIComponent(msg)}" target="_blank" style="color:#a78bfa">WhatsApp</a> ahora mismo. ¡Respondemos enseguida! 💬`;
+}
+
+function addMsg(html, isUser = false) {
+  const messages = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg';
+  if (isUser) div.style.cssText = 'background:rgba(124,58,237,0.2);align-self:flex-end;border-radius:12px 12px 2px 12px';
+  div.innerHTML = html;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+}
+
 function sendChat() {
   const input = document.getElementById('chatInput');
   const msg = input.value.trim();
   if (!msg) return;
-  const messages = document.getElementById('chatMessages');
-  const userMsg = document.createElement('div');
-  userMsg.className = 'chat-msg';
-  userMsg.style.cssText = 'background:rgba(124,58,237,0.2);align-self:flex-end;border-radius:12px 12px 2px 12px';
-  userMsg.textContent = msg;
-  messages.appendChild(userMsg);
+  addMsg(msg, true);
   input.value = '';
-  setTimeout(() => {
-    const reply = document.createElement('div');
-    reply.className = 'chat-msg';
-    reply.innerHTML = 'Gracias por tu mensaje. Para una respuesta inmediata, contáctanos por <a href="https://wa.me/34614062503" target="_blank" style="color:#a78bfa">WhatsApp al 614 062 503</a> ✅';
-    messages.appendChild(reply);
-    messages.scrollTop = messages.scrollHeight;
-  }, 800);
-  messages.scrollTop = messages.scrollHeight;
+  setTimeout(() => addMsg(getReply(msg)), 600);
 }
 
 function sendWhatsApp() {
