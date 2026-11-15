@@ -8,6 +8,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Botpress AI Assistant (KanetTech Lead Qualification) -->
+<script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/11/15/13/20261115131515-5EJ5OAHM.js" defer></script>
+
 <style>
   :root{
     --bg:#07080F;--bg-1:#0C0E1A;--bg-2:#13162A;--bg-3:#1A1E36;
@@ -17,7 +22,7 @@
     --amber:#FFB347;--rad:14px;--rad-sm:10px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  /* Reset universal para botones que reemplazan enlaces (no muestran URL en hover) */
+  /* Reset universal para botones que reemplazan enlaces */
   button.logo,
   .nav-links button,
   .trust button.brand-name,
@@ -158,9 +163,7 @@
   .case a.lk:hover{border-color:var(--accent-3)}
   .case .lk{font-family:'JetBrains Mono';font-size:.74rem;color:var(--accent-3);letter-spacing:.5px;background:transparent;border:none;border-bottom:1px solid transparent;padding:0 0 2px;transition:.2s;cursor:pointer;display:inline-block;font-weight:400}
   .case .lk:hover{border-bottom-color:var(--accent-3)}
-  /* Reset de buttons que usan .btn o .lk para que no muestren estilo nativo */
   button.btn,button.lk,button.footwa{-webkit-appearance:none;appearance:none;font-family:inherit}
-  /* Footer WhatsApp como botón estilo enlace */
   .footwa{background:none;border:none;padding:0;color:var(--text-2);font-size:.92rem;cursor:pointer;transition:.2s;text-align:left;font-family:inherit}
   .footwa:hover{color:var(--text)}
 
@@ -227,56 +230,6 @@
   footer ul a:hover{color:var(--text)}
   .foot-copy{border-top:1px solid var(--border);padding-top:24px;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;color:var(--text-3);font-size:.82rem;flex-wrap:wrap;gap:12px}
 
-  /* WHATSAPP FAB */
-  .wa-fab{position:fixed;bottom:96px;right:24px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:transform .25s}
-  .wa-fab:hover{transform:scale(1.1)}
-  .wa-fab svg{width:30px;height:30px;fill:#fff}
-
-  /* CHATBOT */
-  .chat-fab{position:fixed;bottom:24px;right:24px;z-index:90;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#4F8EFF,#36D4E5,#6BE6A4);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(54,212,229,.35);transition:transform .25s}
-  .chat-fab:hover{transform:scale(1.08)}
-  .chat-fab svg{width:26px;height:26px;fill:#07080F}
-  .chat-w{position:fixed;bottom:24px;right:24px;z-index:91;width:400px;max-width:calc(100vw - 32px);height:620px;max-height:calc(100vh - 48px);background:var(--bg-2);border:1px solid var(--border-2);border-radius:18px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:popIn .3s ease}
-  .chat-w.open{display:flex}
-  @keyframes popIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-  .chat-h{background:linear-gradient(135deg,var(--bg-1),var(--bg-3));padding:14px 18px;display:flex;align-items:center;gap:11px;border-bottom:1px solid var(--border)}
-  .chat-h .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4F8EFF,#36D4E5,#6BE6A4);display:flex;align-items:center;justify-content:center;color:var(--bg);font-family:'JetBrains Mono';font-weight:600;font-size:1rem}
-  .chat-h .ht{flex:1;min-width:0}
-  .chat-h .ht b{display:block;font-weight:600;font-size:.97rem;color:var(--text)}
-  .chat-h .ht small{font-size:.74rem;color:var(--text-3);display:flex;align-items:center;gap:6px}
-  .chat-h .ht .dot{width:7px;height:7px;border-radius:50%;background:#6BE6A4;animation:p 2s infinite}
-  .chat-close{background:none;border:none;color:var(--text-2);font-size:1.5rem;cursor:pointer;line-height:1;padding:0 4px}
-  .chat-close:hover{color:var(--text)}
-  .chat-b{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:10px}
-  .chat-b::-webkit-scrollbar{width:5px}
-  .chat-b::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:5px}
-  .msg{max-width:88%;padding:11px 14px;border-radius:14px;font-size:.92rem;line-height:1.5;animation:msgIn .25s ease}
-  @keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-  .msg.bot{align-self:flex-start;background:var(--bg-3);color:var(--text);border-bottom-left-radius:4px}
-  .msg.user{align-self:flex-end;background:linear-gradient(135deg,#4F8EFF,#36D4E5);color:var(--bg);border-bottom-right-radius:4px;font-weight:500}
-  .msg b{color:var(--accent-2)}
-  .msg.user b{color:var(--bg)}
-  .msg a{color:var(--accent-3);text-decoration:underline}
-  .msg .em{font-size:1.1rem;display:inline-block;margin-right:4px}
-  .quick-btns{padding:6px 14px 14px;display:flex;flex-direction:column;gap:7px;border-top:1px solid transparent;animation:msgIn .25s ease}
-  .quick-btn{background:var(--bg-3);border:1px solid var(--border);color:var(--text);padding:11px 14px;border-radius:11px;font-size:.88rem;cursor:pointer;transition:.2s;font-family:inherit;text-align:left;display:flex;align-items:center;gap:10px;width:100%}
-  .quick-btn:hover{border-color:var(--accent-2);background:var(--bg-2);color:var(--accent-2);transform:translateX(2px)}
-  .quick-btn.primary{background:linear-gradient(135deg,#4F8EFF,#36D4E5);color:var(--bg);border:none;font-weight:600;justify-content:center}
-  .quick-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(79,142,255,.3);color:var(--bg)}
-  .quick-btn.ghost{background:transparent;color:var(--text-3);font-size:.84rem;justify-content:center;padding:8px}
-  .quick-btn.ghost:hover{color:var(--text-2);background:rgba(255,255,255,.03)}
-  .typing{align-self:flex-start;background:var(--bg-3);padding:12px 16px;border-radius:13px;display:flex;gap:5px}
-  .typing span{width:7px;height:7px;background:var(--accent-2);border-radius:50%;animation:b 1.2s infinite}
-  .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
-  @keyframes b{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-6px);opacity:1}}
-  .chat-in{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--border);background:var(--bg-1)}
-  .chat-in input{flex:1;background:var(--bg-2);border:1px solid var(--border);border-radius:22px;padding:11px 16px;color:var(--text);font-family:inherit;font-size:.92rem;outline:none;transition:border-color .2s}
-  .chat-in input:focus{border-color:var(--accent-2)}
-  .chat-send{background:linear-gradient(135deg,#4F8EFF,#36D4E5);border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;color:var(--bg);font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s}
-  .chat-send:hover{transform:scale(1.08)}
-  .lead-summary{background:rgba(54,212,229,.05);border:1px solid rgba(54,212,229,.2);border-radius:10px;padding:12px 14px;margin-top:6px;font-size:.84rem;line-height:1.6}
-  .lead-summary b{color:var(--accent-2);font-weight:500}
-
   /* RESPONSIVE */
   @media(max-width:900px){
     .nav-links{position:fixed;inset:0 0 0 30%;background:var(--bg-1);border-left:1px solid var(--border);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:transform .35s;z-index:100}
@@ -327,7 +280,7 @@
     <h1 data-i18n="hero.title">Consigue más <span class="serif-it gtext">clientes</span> y ahorra <span class="serif-it gtext">tiempo</span> con IA y automatización.</h1>
     <p class="lead" data-i18n="hero.lead">Diseñamos webs profesionales, asistentes inteligentes y automatizaciones para pequeñas empresas. 100% remoto · España, Latinoamérica y EEUU.</p>
     <div class="hero-ctas">
-      <button onclick="openChatTo('proposal_start')" class="btn btn-primary" data-i18n="hero.cta1">Solicita tu propuesta →</button>
+      <button onclick="openBot()" class="btn btn-primary" data-i18n="hero.cta1">Solicita tu propuesta →</button>
       <button onclick="scrollToSection('portfolio')" class="btn btn-ghost" data-i18n="hero.cta2">Ver casos</button>
     </div>
     <div class="hero-meta">
@@ -446,7 +399,7 @@
         <div class="tags"><span class="tag demo">Demo</span><span class="tag">Healthcare</span><span class="tag">Booking</span></div>
         <h3>WellCare Clinic</h3>
         <p data-i18n="port.c3.d">Demo para clínica de salud familiar. Reserva de citas online, perfiles de médicos y diseño limpio para sector sanitario.</p>
-        <button onclick="openChatTo('home')" class="lk" data-i18n="port.askdemo">Pedir demo personalizada →</button>
+        <button onclick="openBot()" class="lk" data-i18n="port.askdemo">Pedir demo personalizada →</button>
       </div>
     </div>
     <div class="case">
@@ -456,7 +409,7 @@
         <div class="tags"><span class="tag demo">Demo</span><span class="tag">Real Estate</span><span class="tag">Search</span></div>
         <h3>Prime Estates</h3>
         <p data-i18n="port.c4.d">Demo para inmobiliaria de lujo. Búsqueda de propiedades, listados destacados y estética premium para real estate.</p>
-        <button onclick="openChatTo('home')" class="lk" data-i18n="port.askdemo">Pedir demo personalizada →</button>
+        <button onclick="openBot()" class="lk" data-i18n="port.askdemo">Pedir demo personalizada →</button>
       </div>
     </div>
     <div class="case">
@@ -466,7 +419,7 @@
         <div class="tags"><span class="tag demo">Demo</span><span class="tag">Professional</span><span class="tag">B2B</span></div>
         <h3>Sterling Advisors</h3>
         <p data-i18n="port.c5.d">Demo para asesoría estratégica/financiera. Métricas, autoridad y diseño corporativo para clientes B2B premium.</p>
-        <button onclick="openChatTo('home')" class="lk" data-i18n="port.askdemo">Pedir demo personalizada →</button>
+        <button onclick="openBot()" class="lk" data-i18n="port.askdemo">Pedir demo personalizada →</button>
       </div>
     </div>
   </div>
@@ -506,7 +459,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t1.f3">SEO básico + Google Business</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t1.f4">Dominio y hosting incluidos</span></li>
       </ul>
-      <button onclick="openChatTo('proposal_start')" class="btn btn-ghost" data-i18n="price.choose">Elegir plan</button>
+      <button onclick="openBot()" class="btn btn-ghost" data-i18n="price.choose">Elegir plan</button>
     </div>
     <div class="tier pop">
       <div class="badge" data-i18n="price.popular">MÁS POPULAR</div>
@@ -521,7 +474,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t2.f4">Web multi-página + blog</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t2.f5">Analítica y reportes mensuales</span></li>
       </ul>
-      <button onclick="openChatTo('proposal_start')" class="btn btn-primary" data-i18n="price.choose">Elegir plan</button>
+      <button onclick="openBot()" class="btn btn-primary" data-i18n="price.choose">Elegir plan</button>
     </div>
     <div class="tier">
       <div class="name">Premium</div>
@@ -535,7 +488,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t3.f4">Integración CRM y formularios</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg><span data-i18n="price.t3.f5">Soporte prioritario</span></li>
       </ul>
-      <button onclick="openChatTo('proposal_start')" class="btn btn-ghost" data-i18n="price.choose">Elegir plan</button>
+      <button onclick="openBot()" class="btn btn-ghost" data-i18n="price.choose">Elegir plan</button>
     </div>
   </div>
 </section>
@@ -597,7 +550,7 @@
   <h2 data-i18n="cta.title">¿Empezamos tu <span class="serif-it gtext">proyecto</span>?</h2>
   <p data-i18n="cta.sub">Cuéntame qué necesitas. Respondo personalmente en menos de 24h con una propuesta clara.</p>
   <div class="hero-ctas">
-    <button onclick="openChatTo('proposal_start')" class="btn btn-primary" data-i18n="cta.btn1">Solicita tu propuesta →</button>
+    <button onclick="openBot()" class="btn btn-primary" data-i18n="cta.btn1">Solicita tu propuesta →</button>
     <button onclick="openMail()" class="btn btn-ghost" data-i18n="cta.btn2">Enviar email</button>
   </div>
 </section>
@@ -641,38 +594,11 @@
   </div>
 </footer>
 
-<!-- WHATSAPP FAB -->
-<button class="wa-fab" id="waFab" onclick="openWa()" aria-label="WhatsApp" style="border:none;cursor:pointer;padding:0">
-  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2.1-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4.1.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.3 8.3 0 1 1 12 20.3z"/></svg>
-</button>
-
-<!-- CHATBOT -->
-<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Chat">
-  <svg viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.3 1.2 4.4 3.2 5.8L4 21l4.5-1.6c1.1.3 2.3.5 3.5.5 5.5 0 10-3.6 10-8s-4.5-8-10-8z"/></svg>
-</button>
-<div class="chat-w" id="chatW">
-  <div class="chat-h">
-    <div class="av">K</div>
-    <div class="ht"><b>KanetTech Digital Solutions</b><small><span class="dot"></span> <span data-i18n="chat.status">Consultor Digital · Respondo en 24h</span></small></div>
-    <button class="chat-close" onclick="toggleChat()">×</button>
-  </div>
-  <div class="chat-b" id="chatB"></div>
-  <div id="quickWrap"></div>
-  <div class="chat-in" id="chatIn" style="display:none">
-    <input type="text" id="chatI" placeholder="..." onkeydown="if(event.key==='Enter')onUserInput()">
-    <button class="chat-send" onclick="onUserInput()" aria-label="Send">➤</button>
-  </div>
-</div>
-
 <script>
 /* ============ CONFIG ============ */
 const KT = {
   whatsapp: '34614062503',
-  email: 'info@kanettech.com',
-  // ⚠️ Para activar el envío por email: ve a https://web3forms.com, registra info@kanettech.com (gratis, sin signup), copia tu Access Key y pégala aquí:
-  web3formsKey: 'YOUR_WEB3FORMS_ACCESS_KEY',
-  // Calendar link — cuando crees una página de citas en Google Calendar (Workspace → Citas), pega aquí la URL:
-  calendarUrl: ''
+  email: 'info@kanettech.com'
 };
 
 /* ============ i18n ============ */
@@ -739,31 +665,7 @@ const I18N = {
     "cta.btn1":"Solicita tu propuesta →","cta.btn2":"Enviar email",
     "foot.tagline":"Webs, asistentes IA y automatización para pequeñas empresas. 100% remoto, servicio en español e inglés.",
     "foot.serv":"Servicios","foot.comp":"Compañía","foot.contact":"Contacto",
-    "foot.rights":"Todos los derechos reservados","foot.built":"Hecho con cuidado desde Madrid, España 🇪🇸",
-    "chat.status":"Consultor Digital · Respondo en 24h",
-    "chat.welcome":'👋 Bienvenido a <b>KanetTech Digital Solutions</b>.<br><br>Puedo ayudarte con:<br>🌐 Desarrollo Web<br>🤖 Asistentes IA<br>⚙️ Automatización<br>☁️ Soluciones Cloud<br>📈 Solicitar una propuesta<br><br>Selecciona una opción o escribe tu consulta.',
-    "chat.btn.proposal":"🚀 Solicitar propuesta","chat.btn.web":"🌐 Crear una web","chat.btn.ai":"🤖 Implementar IA","chat.btn.auto":"⚙️ Automatizar procesos","chat.btn.cloud":"☁️ Soluciones Cloud","chat.btn.schedule":"📅 Agendar consulta",
-    "chat.svc.web":'🌐 <b>Diseño Web Profesional</b><br><br>Diseñamos webs elegantes y rápidas que convierten visitas en clientes. Optimizadas para móvil, SEO incluido y con tu identidad de marca.<br><br>Desde <b>€500</b> (Starter) hasta <b>€1.500</b> (Premium con IA).',
-    "chat.svc.ai":'🤖 <b>Asistentes IA Empresariales</b><br><br>Atienden a tus clientes 24/7 en tu web y WhatsApp. Responden FAQs, capturan leads, agendan citas y los pasan a humano cuando hace falta.<br><br>Vienen incluidos en los planes <b>Pro</b> y <b>Premium</b>.',
-    "chat.svc.auto":'⚙️ <b>Automatización Empresarial</b><br><br>Conectamos tus herramientas (CRM, email, WhatsApp, planillas) con flujos de n8n / Make. Ahorras horas a la semana eliminando tareas repetitivas.<br><br>Desde <b>€300</b> por flujo · Incluido en <b>Premium</b>.',
-    "chat.svc.cloud":'☁️ <b>Soluciones Cloud (Azure & AWS)</b><br><br>Con 10+ años en cloud enterprise, te ayudo con migración, optimización de costes y gobernanza.<br><br>Audit Cloud cerrado desde <b>€1.200</b> · Retainer mensual desde <b>€800</b>.',
-    "chat.btn.want_proposal":"✅ Quiero una propuesta","chat.btn.more":"ℹ️ Más información","chat.btn.back":"← Volver al menú",
-    "chat.proposal.start":"Perfecto. Para preparar una propuesta personalizada necesito unos datos. Te pregunto uno a uno:",
-    "chat.proposal.ask_name":"👤 ¿Cuál es tu <b>nombre</b>?",
-    "chat.proposal.ask_company":"🏢 Hola {name}. ¿Cómo se llama tu <b>empresa o proyecto</b>?",
-    "chat.proposal.ask_email":"✉️ Tu <b>email</b> para enviarte la propuesta:",
-    "chat.proposal.ask_phone":"📞 Tu <b>WhatsApp o teléfono</b> (escribe \"omitir\" si prefieres):",
-    "chat.proposal.ask_need":"📝 Por último: <b>¿qué necesitas?</b> Cuéntame en una o dos frases.",
-    "chat.proposal.summary":"¡Perfecto! Esto es lo que tengo:",
-    "chat.proposal.howsend":"¿Cómo prefieres recibir tu propuesta?",
-    "chat.btn.send_email":"📧 Por email","chat.btn.send_whatsapp":"💬 Por WhatsApp",
-    "chat.sent.email":"✅ ¡Recibido! Te enviaremos la propuesta a <b>{email}</b> en menos de 24h. Mientras tanto, puedes seguir explorando.",
-    "chat.sent.whatsapp":"💬 Abriendo WhatsApp con tu información... Si no se abrió, <a href=\"{url}\" target=\"_blank\">haz clic aquí</a>.",
-    "chat.error.email":"❌ El email no parece válido. Inténtalo de nuevo.",
-    "chat.error.send":"⚠️ No pudimos enviar el email. Te abrimos WhatsApp con tu información para que no pierdas tiempo.",
-    "chat.schedule":"📅 Perfecto. Puedes agendar una consulta gratuita conmigo:",
-    "chat.btn.open_calendar":"📅 Abrir calendario","chat.btn.schedule_wa":"💬 Agendar por WhatsApp",
-    "chat.placeholder":"Escribe aquí...","chat.skip":"omitir",
+    "foot.rights":"Todos los derechos reservados","foot.built":"Hecho con cuidado desde Madrid, España 🇪🇸"
   },
   en: {
     "topbar":"Available for new projects · Remote, global",
@@ -827,31 +729,7 @@ const I18N = {
     "cta.btn1":"Request your proposal →","cta.btn2":"Send email",
     "foot.tagline":"Websites, AI assistants and automation for small businesses. 100% remote, service in English and Spanish.",
     "foot.serv":"Services","foot.comp":"Company","foot.contact":"Contact",
-    "foot.rights":"All rights reserved","foot.built":"Made with care from Madrid, Spain 🇪🇸",
-    "chat.status":"Digital Consultant · I reply within 24h",
-    "chat.welcome":'👋 Welcome to <b>KanetTech Digital Solutions</b>.<br><br>I can help you with:<br>🌐 Web Development<br>🤖 AI Assistants<br>⚙️ Automation<br>☁️ Cloud Solutions<br>📈 Request a proposal<br><br>Pick an option or type your question.',
-    "chat.btn.proposal":"🚀 Request a proposal","chat.btn.web":"🌐 Build a website","chat.btn.ai":"🤖 Implement AI","chat.btn.auto":"⚙️ Automate processes","chat.btn.cloud":"☁️ Cloud Solutions","chat.btn.schedule":"📅 Schedule a call",
-    "chat.svc.web":'🌐 <b>Professional Web Design</b><br><br>We design elegant, fast websites that convert visitors into customers. Mobile-optimized, SEO included, with your brand identity.<br><br>From <b>€500</b> (Starter) to <b>€1,500</b> (Premium with AI).',
-    "chat.svc.ai":'🤖 <b>AI Business Assistants</b><br><br>They attend your customers 24/7 on your site and WhatsApp. Answer FAQs, capture leads, book appointments and escalate to a human when needed.<br><br>Included in <b>Pro</b> and <b>Premium</b> plans.',
-    "chat.svc.auto":'⚙️ <b>Business Automation</b><br><br>We connect your tools (CRM, email, WhatsApp, sheets) with n8n / Make flows. You save hours a week by removing repetitive tasks.<br><br>From <b>€300</b> per workflow · Included in <b>Premium</b>.',
-    "chat.svc.cloud":'☁️ <b>Cloud Solutions (Azure & AWS)</b><br><br>With 10+ years in enterprise cloud, I help with migration, cost optimization and governance.<br><br>Closed Cloud Audit from <b>€1,200</b> · Monthly retainer from <b>€800</b>.',
-    "chat.btn.want_proposal":"✅ I want a proposal","chat.btn.more":"ℹ️ More info","chat.btn.back":"← Back to menu",
-    "chat.proposal.start":"Perfect. To prepare a custom proposal I'll need a few details. I'll ask one at a time:",
-    "chat.proposal.ask_name":"👤 What's your <b>name</b>?",
-    "chat.proposal.ask_company":"🏢 Hi {name}. What's your <b>company or project</b> called?",
-    "chat.proposal.ask_email":"✉️ Your <b>email</b> to send the proposal:",
-    "chat.proposal.ask_phone":"📞 Your <b>WhatsApp or phone</b> (type \"skip\" if you prefer):",
-    "chat.proposal.ask_need":"📝 Lastly: <b>what do you need?</b> Tell me in one or two sentences.",
-    "chat.proposal.summary":"Perfect! This is what I have:",
-    "chat.proposal.howsend":"How would you prefer to receive your proposal?",
-    "chat.btn.send_email":"📧 By email","chat.btn.send_whatsapp":"💬 By WhatsApp",
-    "chat.sent.email":"✅ Got it! We'll send your proposal to <b>{email}</b> within 24h. Meanwhile, feel free to keep exploring.",
-    "chat.sent.whatsapp":"💬 Opening WhatsApp with your information... If it didn't open, <a href=\"{url}\" target=\"_blank\">click here</a>.",
-    "chat.error.email":"❌ That email doesn't look valid. Please try again.",
-    "chat.error.send":"⚠️ We couldn't send the email. Opening WhatsApp with your information instead.",
-    "chat.schedule":"📅 Perfect. You can book a free consultation with me:",
-    "chat.btn.open_calendar":"📅 Open calendar","chat.btn.schedule_wa":"💬 Schedule via WhatsApp",
-    "chat.placeholder":"Type here...","chat.skip":"skip",
+    "foot.rights":"All rights reserved","foot.built":"Made with care from Madrid, Spain 🇪🇸"
   }
 };
 
@@ -862,288 +740,51 @@ function t(k){return (I18N[LANG]&&I18N[LANG][k])||k}
 function setLang(l){
   LANG=l;document.documentElement.lang=l;localStorage.setItem('kt-lang',l);
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(I18N[l][k])el.innerHTML=I18N[l][k]});
-  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.dataset.i18nPh;if(I18N[l][k])el.placeholder=I18N[l][k]});
   document.getElementById('btnES').classList.toggle('active',l==='es');
   document.getElementById('btnEN').classList.toggle('active',l==='en');
-  const ci=document.getElementById('chatI');if(ci)ci.placeholder=t('chat.placeholder');
-  // Reinicia el chatbot en el nuevo idioma si está abierto
-  try {
-    if(STATE.started && document.getElementById('chatW').classList.contains('open')){
-      document.getElementById('chatB').innerHTML='';
-      STATE.lead={name:'',company:'',email:'',phone:'',need:''};
-      goTo('home');
-    }
-  } catch(e) { /* STATE aún no inicializado en el primer setLang() */ }
 }
 
 // Abre WhatsApp sin mostrar URL en hover
 function openWa(text){
   const msg=text||(LANG==='es'?'Hola KanetTech!':'Hi KanetTech!');
-  window.open('https://wa.me/'+(typeof KT!=='undefined'?KT.whatsapp:'34614062503')+'?text='+encodeURIComponent(msg),'_blank','noopener');
+  window.open('https://wa.me/'+KT.whatsapp+'?text='+encodeURIComponent(msg),'_blank','noopener');
 }
-// Scroll suave a sección por ID — sin mostrar URL en hover
+// Scroll suave a sección por ID
 function scrollToSection(id){
   const el=document.getElementById(id);
   if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
 }
-// Abre enlace externo en nueva pestaña — sin mostrar URL
+// Abre enlace externo
 function openLink(url){window.open(url,'_blank','noopener,noreferrer')}
 // Abre cliente de email
-function openMail(){window.location.href='mailto:'+(typeof KT!=='undefined'?KT.email:'info@kanettech.com')}
+function openMail(){window.location.href='mailto:'+KT.email}
+
+// Abre el widget de Botpress con retry por si aún no cargó el script
+function openBot(){
+  if(window.botpress && typeof window.botpress.open==='function'){
+    try{window.botpress.open();}catch(e){console.warn('Botpress open failed',e);}
+    return;
+  }
+  // Retry hasta 3s por si el script defer aún no cargó
+  let attempts=0;
+  const retry=setInterval(()=>{
+    if(window.botpress && typeof window.botpress.open==='function'){
+      clearInterval(retry);
+      try{window.botpress.open();}catch(e){console.warn('Botpress open failed',e);}
+    } else if(++attempts>20){
+      clearInterval(retry);
+      // Fallback: avisar al usuario de que use WhatsApp o email
+      console.warn('Botpress no cargó. Fallback a WhatsApp.');
+      openWa(LANG==='es'?'Hola KanetTech, me gustaría solicitar una propuesta.':'Hi KanetTech, I would like to request a proposal.');
+    }
+  },150);
+}
+
 setLang(LANG);
 
 /* NAV */
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
 function closeMenu(){document.getElementById('navLinks').classList.remove('open')}
-
-/* ============ CHATBOT — STATE MACHINE ============ */
-const chatW=document.getElementById('chatW');
-const chatFab=document.getElementById('chatFab');
-const chatB=document.getElementById('chatB');
-const chatI=document.getElementById('chatI');
-const chatIn=document.getElementById('chatIn');
-const quickWrap=document.getElementById('quickWrap');
-
-const STATE = {
-  current: 'home',
-  lead: {name:'', company:'', email:'', phone:'', need:''},
-  started: false,
-};
-
-function toggleChat(){
-  const open=chatW.classList.toggle('open');
-  chatFab.style.display=open?'none':'flex';
-  const w=document.getElementById('waFab');if(w)w.style.display=open?'none':'flex';
-  if(open&&!STATE.started){STATE.started=true;goTo('home')}
-}
-function openChatTo(s){
-  // Resetea conversación y va directo al estado pedido
-  STATE.started=true;
-  STATE.lead={name:'',company:'',email:'',phone:'',need:''};
-  chatB.innerHTML='';
-  if(!chatW.classList.contains('open')){
-    chatW.classList.add('open');
-    chatFab.style.display='none';
-    const w=document.getElementById('waFab');if(w)w.style.display='none';
-  }
-  setTimeout(()=>goTo(s),100);
-}
-
-function botSay(html){
-  const d=document.createElement('div');d.className='msg bot';d.innerHTML=html;
-  chatB.appendChild(d);chatB.scrollTop=chatB.scrollHeight;
-}
-function userSay(text){
-  const d=document.createElement('div');d.className='msg user';d.textContent=text;
-  chatB.appendChild(d);chatB.scrollTop=chatB.scrollHeight;
-}
-function showTyping(){
-  const t=document.createElement('div');t.className='typing';t.id='typing';
-  t.innerHTML='<span></span><span></span><span></span>';
-  chatB.appendChild(t);chatB.scrollTop=chatB.scrollHeight;
-}
-function hideTyping(){const t=document.getElementById('typing');if(t)t.remove()}
-
-function clearQuick(){quickWrap.innerHTML=''}
-function showButtons(buttons){
-  clearQuick();
-  const wrap=document.createElement('div');wrap.className='quick-btns';
-  buttons.forEach(b=>{
-    const btn=document.createElement('button');
-    btn.className='quick-btn'+(b.primary?' primary':'')+(b.ghost?' ghost':'');
-    btn.textContent=b.label;btn.onclick=b.onclick;
-    wrap.appendChild(btn);
-  });
-  quickWrap.appendChild(wrap);
-}
-function showInput(placeholder){
-  clearQuick();chatIn.style.display='flex';
-  chatI.placeholder=placeholder||t('chat.placeholder');chatI.value='';chatI.focus();
-}
-function hideInput(){chatIn.style.display='none'}
-
-/* Bot reply with typing delay */
-function bot(html, delay=600){
-  showTyping();
-  setTimeout(()=>{hideTyping();botSay(html)}, delay);
-}
-
-/* ============ STATES ============ */
-function goTo(state, payload){
-  STATE.current=state;
-  hideInput();clearQuick();
-  switch(state){
-    case 'home':
-      bot(t('chat.welcome'),300);
-      setTimeout(()=>showButtons([
-        {label:t('chat.btn.proposal'),primary:true,onclick:()=>{userSay(t('chat.btn.proposal'));goTo('proposal_start')}},
-        {label:t('chat.btn.web'),onclick:()=>{userSay(t('chat.btn.web'));goTo('svc_web')}},
-        {label:t('chat.btn.ai'),onclick:()=>{userSay(t('chat.btn.ai'));goTo('svc_ai')}},
-        {label:t('chat.btn.auto'),onclick:()=>{userSay(t('chat.btn.auto'));goTo('svc_auto')}},
-        {label:t('chat.btn.cloud'),onclick:()=>{userSay(t('chat.btn.cloud'));goTo('svc_cloud')}},
-        {label:t('chat.btn.schedule'),onclick:()=>{userSay(t('chat.btn.schedule'));goTo('schedule')}},
-      ]),900);
-      break;
-    case 'svc_web':
-      bot(t('chat.svc.web'));
-      setTimeout(()=>showButtons([
-        {label:t('chat.btn.want_proposal'),primary:true,onclick:()=>{userSay(t('chat.btn.want_proposal'));goTo('proposal_start')}},
-        {label:t('chat.btn.back'),ghost:true,onclick:()=>goTo('home')}
-      ]),900);
-      break;
-    case 'svc_ai':
-      bot(t('chat.svc.ai'));
-      setTimeout(()=>showButtons([
-        {label:t('chat.btn.want_proposal'),primary:true,onclick:()=>{userSay(t('chat.btn.want_proposal'));goTo('proposal_start')}},
-        {label:t('chat.btn.back'),ghost:true,onclick:()=>goTo('home')}
-      ]),900);
-      break;
-    case 'svc_auto':
-      bot(t('chat.svc.auto'));
-      setTimeout(()=>showButtons([
-        {label:t('chat.btn.want_proposal'),primary:true,onclick:()=>{userSay(t('chat.btn.want_proposal'));goTo('proposal_start')}},
-        {label:t('chat.btn.back'),ghost:true,onclick:()=>goTo('home')}
-      ]),900);
-      break;
-    case 'svc_cloud':
-      bot(t('chat.svc.cloud'));
-      setTimeout(()=>showButtons([
-        {label:t('chat.btn.want_proposal'),primary:true,onclick:()=>{userSay(t('chat.btn.want_proposal'));goTo('proposal_start')}},
-        {label:t('chat.btn.back'),ghost:true,onclick:()=>goTo('home')}
-      ]),900);
-      break;
-    case 'proposal_start':
-      bot(t('chat.proposal.start'));
-      setTimeout(()=>{bot(t('chat.proposal.ask_name'));showInput(t('chat.placeholder'))},1100);
-      break;
-    case 'ask_company':
-      bot(t('chat.proposal.ask_company').replace('{name}',STATE.lead.name));
-      showInput(t('chat.placeholder'));
-      break;
-    case 'ask_email':
-      bot(t('chat.proposal.ask_email'));
-      showInput('email@example.com');
-      break;
-    case 'ask_phone':
-      bot(t('chat.proposal.ask_phone'));
-      showInput('+34 ... · '+t('chat.skip'));
-      break;
-    case 'ask_need':
-      bot(t('chat.proposal.ask_need'));
-      showInput(t('chat.placeholder'));
-      break;
-    case 'proposal_summary':
-      const l=STATE.lead;
-      bot(t('chat.proposal.summary')+'<div class="lead-summary"><b>👤</b> '+l.name+'<br><b>🏢</b> '+l.company+'<br><b>✉️</b> '+l.email+'<br><b>📞</b> '+(l.phone||'—')+'<br><b>📝</b> '+l.need+'</div>');
-      setTimeout(()=>{bot(t('chat.proposal.howsend'),300);
-        setTimeout(()=>showButtons([
-          {label:t('chat.btn.send_email'),primary:true,onclick:()=>sendLead('email')},
-          {label:t('chat.btn.send_whatsapp'),onclick:()=>sendLead('whatsapp')},
-        ]),700);
-      },1200);
-      break;
-    case 'schedule':
-      bot(t('chat.schedule'));
-      setTimeout(()=>{
-        const btns=[];
-        if(KT.calendarUrl){btns.push({label:t('chat.btn.open_calendar'),primary:true,onclick:()=>window.open(KT.calendarUrl,'_blank')})}
-        btns.push({label:t('chat.btn.schedule_wa'),primary:!KT.calendarUrl,onclick:()=>{
-          const msg=LANG==='es'?'Hola! Quiero agendar una consulta gratuita.':'Hi! I would like to schedule a free consultation.';
-          window.open('https://wa.me/'+KT.whatsapp+'?text='+encodeURIComponent(msg),'_blank');
-        }});
-        btns.push({label:t('chat.btn.back'),ghost:true,onclick:()=>goTo('home')});
-        showButtons(btns);
-      },900);
-      break;
-    default:
-      // Fallback si el estado no existe → ir al menú principal
-      goTo('home');
-  }
-}
-
-/* ============ HANDLE USER INPUT ============ */
-function onUserInput(){
-  const v=chatI.value.trim();if(!v)return;
-  chatI.value='';
-  userSay(v);
-  const s=STATE.current;
-
-  if(s==='proposal_start'){STATE.lead.name=v;goTo('ask_company');return}
-  if(s==='ask_company'){STATE.lead.company=v;goTo('ask_email');return}
-  if(s==='ask_email'){
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){bot(t('chat.error.email'),500);return}
-    STATE.lead.email=v;goTo('ask_phone');return;
-  }
-  if(s==='ask_phone'){
-    const skip=t('chat.skip').toLowerCase();
-    STATE.lead.phone=(v.toLowerCase()===skip||v.toLowerCase()==='omitir'||v.toLowerCase()==='skip')?'':v;
-    goTo('ask_need');return;
-  }
-  if(s==='ask_need'){STATE.lead.need=v;goTo('proposal_summary');return}
-
-  // Fallback: free-text en otros estados
-  bot(LANG==='es'
-    ? 'Para una atención más rápida, usa los botones de arriba o escríbenos por <a href="https://wa.me/'+KT.whatsapp+'" target="_blank">WhatsApp</a>.'
-    : 'For faster service, use the buttons above or message us on <a href="https://wa.me/'+KT.whatsapp+'" target="_blank">WhatsApp</a>.', 500);
-  setTimeout(()=>goTo('home'),1800);
-}
-
-/* ============ SEND LEAD ============ */
-function buildWhatsappUrl(){
-  const l=STATE.lead;
-  const msg=(LANG==='es'?'Hola KanetTech! Solicito propuesta:':'Hi KanetTech! Requesting proposal:')+
-    '\n\n👤 '+l.name+
-    '\n🏢 '+l.company+
-    '\n✉️ '+l.email+
-    (l.phone?'\n📞 '+l.phone:'')+
-    '\n\n📝 '+l.need;
-  return 'https://wa.me/'+KT.whatsapp+'?text='+encodeURIComponent(msg);
-}
-
-async function sendLead(via){
-  hideInput();clearQuick();
-  if(via==='whatsapp'){
-    const url=buildWhatsappUrl();
-    bot(t('chat.sent.whatsapp').replace('{url}',url),400);
-    setTimeout(()=>window.open(url,'_blank'),700);
-    setTimeout(()=>showButtons([{label:t('chat.btn.back'),ghost:true,onclick:()=>goTo('home')}]),1800);
-    return;
-  }
-  // email via Web3Forms
-  showTyping();
-  try {
-    if(KT.web3formsKey&&KT.web3formsKey!=='YOUR_WEB3FORMS_ACCESS_KEY'){
-      const l=STATE.lead;
-      const res=await fetch('https://api.web3forms.com/submit',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({
-          access_key:KT.web3formsKey,
-          subject:'Nueva consulta KanetTech — '+l.name+' ('+l.company+')',
-          from_name:l.name,
-          email:l.email,
-          message:'Nombre: '+l.name+'\nEmpresa: '+l.company+'\nEmail: '+l.email+'\nTeléfono: '+(l.phone||'—')+'\n\nNecesita:\n'+l.need+'\n\nIdioma de la conversación: '+LANG.toUpperCase()
-        })
-      });
-      const data=await res.json();
-      hideTyping();
-      if(data.success){
-        bot(t('chat.sent.email').replace('{email}',STATE.lead.email),300);
-        setTimeout(()=>showButtons([{label:t('chat.btn.back'),ghost:true,onclick:()=>goTo('home')}]),1500);
-        return;
-      }
-      throw new Error('web3forms failed');
-    } else {
-      // Si no hay key configurada, abrimos WhatsApp como fallback
-      throw new Error('no key');
-    }
-  } catch(e){
-    hideTyping();
-    bot(t('chat.error.send'),300);
-    const url=buildWhatsappUrl();
-    setTimeout(()=>{window.open(url,'_blank');showButtons([{label:t('chat.btn.back'),ghost:true,onclick:()=>goTo('home')}])},1500);
-  }
-}
 </script>
 </body>
 </html>
